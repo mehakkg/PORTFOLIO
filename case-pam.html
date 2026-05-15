@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PAM Platform Redesign — Mehak Garg</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="scroll-progress"></div>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo" data-cursor="hover">
+    <span class="dot"></span>
+    <img src="assets/logo.svg" alt="Mehak Garg" />
+  </a>
+  <div class="nav-links">
+    <a href="index.html#work" data-cursor="hover">Work</a>
+    <a href="about.html" data-cursor="hover">About</a>
+    <a href="about.html#contact" class="cta" data-cursor="hover">Book a call →</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="case-hero">
+    <div class="breadcrumbs">Work / PAM</div>
+    <h1 class="reveal">PAM Platform <span class="em">Redesign</span></h1>
+    <p class="sub reveal">Rebuilding the security command centre for enterprise IT teams — from audit chaos to a system that actually prevents breaches.</p>
+    <div class="case-meta reveal">
+      <div class="it"><div class="l">Client</div><div class="v serif">miniOrange</div></div>
+      <div class="it"><div class="l">Year</div><div class="v serif">2023 — 2026</div></div>
+      <div class="it"><div class="l">Role</div><div class="v serif">Sr. Product Designer</div></div>
+      <div class="it"><div class="l">Domain</div><div class="v serif">Privileged Access Management</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="case-section reveal">
+    <h2 class="serif">The problem</h2>
+    <p class="lead">Enterprise IT teams managing privileged accounts faced an overwhelming, fragmented interface. Password vaults, session recordings, approval workflows, and audit logs lived in disconnected corners of the product — causing compliance failures and security gaps.</p>
+    <div class="stats">
+      <div class="stat"><div class="n serif">4<span class="em">+</span></div><div class="l">days average onboarding time for new privileged accounts</div></div>
+      <div class="stat"><div class="n serif">60<span class="em">%</span></div><div class="l">of IT admins reported missing audit trails due to UI confusion</div></div>
+      <div class="stat"><div class="n serif">3<span class="em">×</span></div><div class="l">more support tickets per enterprise customer vs. competitors</div></div>
+      <div class="stat"><div class="n serif">0</div><div class="l">design system in place before this engagement</div></div>
+    </div>
+  </div>
+
+  <div class="case-section reveal">
+    <h2 class="serif">Discovery & audit</h2>
+    <p class="lead">Before touching Figma, I ran a scenario-driven audit across 12 enterprise customer sessions and 3 internal team interviews.</p>
+    <div class="problem-list">
+      <div class="it">
+        <div class="lab">Problem 01</div>
+        <h4 class="serif">No single source of truth</h4>
+        <p>Privileged accounts were managed across 4 separate views with no consolidated dashboard. Admins had to cross-reference tabs to complete basic tasks.</p>
+        <div class="insight">"I have 3 monitors and I still can't see everything I need at once."</div>
+      </div>
+      <div class="it">
+        <div class="lab">Problem 02</div>
+        <h4 class="serif">Approval workflows buried</h4>
+        <p>Just-in-time access requests required 7 clicks to approve. In emergencies, IT admins were bypassing the system entirely.</p>
+        <div class="insight">"When the server is down, I don't have time for six confirmation dialogs."</div>
+      </div>
+      <div class="it">
+        <div class="lab">Problem 03</div>
+        <h4 class="serif">Audit logs unusable</h4>
+        <p>Session recordings and audit logs were stored in raw table format with no filtering, tagging, or anomaly surfacing.</p>
+        <div class="insight">"I export to Excel and search there. The product search is useless."</div>
+      </div>
+      <div class="it">
+        <div class="lab">Problem 04</div>
+        <h4 class="serif">Onboarding had no guardrails</h4>
+        <p>New enterprise customers took 4+ days to configure their first privileged access policy. No guided setup, no defaults, no progressive disclosure.</p>
+        <div class="insight">"We scheduled a 2-day call with the customer success team just to get started."</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-section reveal">
+    <h2 class="serif">Design approach</h2>
+    <p class="lead">Strategy before screens. The architecture was decided before any wireframe — then each component was built to make the right action the fastest action.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="n">01</div>
+        <div class="t serif">Information architecture</div>
+        <div class="d">Collapsed 4 navigation areas into a unified command structure. Privileged accounts, sessions, policies, and audit all visible from one sidebar.</div>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <div class="t serif">Just-in-time access flow</div>
+        <div class="d">Rebuilt the approval workflow from 7 steps to 2. Inline context, one-click approve/deny, and a persistent notifications tray for pending requests.</div>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <div class="t serif">Intelligent audit surface</div>
+        <div class="d">Replaced raw tables with a filterable, taggable session timeline. Anomaly flags surface automatically. Export to CSV preserved for compliance teams.</div>
+      </div>
+      <div class="step">
+        <div class="n">04</div>
+        <div class="t serif">Guided onboarding system</div>
+        <div class="d">Built a progressive setup wizard with opinionated defaults for common enterprise configurations. Admins reach first policy in under 30 minutes.</div>
+      </div>
+      <div class="step">
+        <div class="n">05</div>
+        <div class="t serif">Design system foundation</div>
+        <div class="d">Documented the first component library for the PAM product: tokens, patterns, and usage rules. The next designer can ship faster because this exists.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-section reveal">
+    <h2 class="serif">Outcomes</h2>
+    <div class="stats">
+      <div class="stat"><div class="n serif"><span class="em">↓</span>82<span class="em">%</span></div><div class="l">Reduction in onboarding time — from 4 days to under 4 hours</div></div>
+      <div class="stat"><div class="n serif"><span class="em">↓</span>61<span class="em">%</span></div><div class="l">Drop in support tickets related to audit and approval workflows</div></div>
+      <div class="stat"><div class="n serif"><span class="em">↑</span>3×</div><div class="l">Faster just-in-time access approvals in production incidents</div></div>
+      <div class="stat"><div class="n serif">1<span class="em">st</span></div><div class="l">Design system shipped for the PAM product line</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="next-case wrap reveal">
+  <span class="eyebrow">Next case study</span>
+  <h3 class="serif"><a href="case-merry.html">Ambulance Dispatch <span class="em">System →</span></a></h3>
+</div>
+
+<footer>
+  <div class="foot">
+    <div class="col">
+      <div class="name" style="margin-bottom:12px;"><img src="assets/logo.svg" alt="Mehak Garg" style="height:32px;width:auto;" /></div>
+      <p class="meta">Senior Product Designer<br/>Building enterprise software that ships.</p>
+    </div>
+    <div class="col">
+      <h5>Sitemap</h5>
+      <a href="index.html#work">Work</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+    </div>
+    <div class="col">
+      <h5>Elsewhere</h5>
+      <a href="#" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="#" target="_blank" rel="noopener">Behance ↗</a>
+    </div>
+    <div class="col">
+      <h5>Located</h5>
+      <p class="meta">Pune · India<br/>Working globally</p>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Mehak Garg</span>
+    <span>Mehak Garg · Senior Product Designer</span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

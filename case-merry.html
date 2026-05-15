@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ambulance Dispatch System — Mehak Garg</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="scroll-progress"></div>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo" data-cursor="hover">
+    <span class="dot"></span>
+    <img src="assets/logo.svg" alt="Mehak Garg" />
+  </a>
+  <div class="nav-links">
+    <a href="index.html#work" data-cursor="hover">Work</a>
+    <a href="about.html" data-cursor="hover">About</a>
+    <a href="about.html#contact" class="cta" data-cursor="hover">Book a call →</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="case-hero">
+    <div class="breadcrumbs">Work / Merry Health</div>
+    <h1 class="reveal">Ambulance Dispatch <span class="em">Decision Support</span></h1>
+    <p class="sub reveal">Designing a real-time emergency dispatch system that helps coordinators make faster, safer decisions when every second counts.</p>
+    <div class="case-meta reveal">
+      <div class="it"><div class="l">Client</div><div class="v serif">Merry Health</div></div>
+      <div class="it"><div class="l">Year</div><div class="v serif">2025</div></div>
+      <div class="it"><div class="l">Role</div><div class="v serif">Lead Designer</div></div>
+      <div class="it"><div class="l">Domain</div><div class="v serif">Emergency Healthcare Ops</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="case-section reveal">
+    <h2 class="serif">The problem</h2>
+    <p class="lead">Emergency ambulance coordinators were making life-critical dispatch decisions using fragmented tools — phone calls, spreadsheets, and a legacy CAD system that hadn't been updated in a decade. The result: delayed responses, misrouted vehicles, and coordinators burning out under cognitive load.</p>
+    <div class="stats">
+      <div class="stat"><div class="n serif">4<span class="em">m</span></div><div class="l">Average additional delay caused by manual cross-referencing during dispatch</div></div>
+      <div class="stat"><div class="n serif">3<span class="em">+</span></div><div class="l">Separate systems coordinators had to manage simultaneously per incident</div></div>
+      <div class="stat"><div class="n serif">6<span class="em">wk</span></div><div class="l">From concept to production-ready prototype</div></div>
+      <div class="stat"><div class="n serif">0</div><div class="l">Existing UX research on coordinator mental models</div></div>
+    </div>
+  </div>
+
+  <div class="case-section reveal">
+    <h2 class="serif">Research & constraints</h2>
+    <p class="lead">This was a high-stakes, high-constraint domain. I embedded with coordinators across two shifts to understand their actual decision-making process.</p>
+    <div class="problem-list">
+      <div class="it">
+        <div class="lab">Constraint 01</div>
+        <h4 class="serif">Cognitive load at peak</h4>
+        <p>During a mass casualty event, coordinators manage 8–12 simultaneous incidents. Any interface that requires reading slows them down.</p>
+        <div class="insight">"I can't read anything during a surge. I go by colour and position."</div>
+      </div>
+      <div class="it">
+        <div class="lab">Constraint 02</div>
+        <h4 class="serif">No room for ambiguity</h4>
+        <p>A wrong dispatch decision has direct patient impact. The interface needed to surface the single best option without hiding alternatives.</p>
+        <div class="insight">"The system should tell me what it thinks, but I need to own the decision."</div>
+      </div>
+      <div class="it">
+        <div class="lab">Constraint 03</div>
+        <h4 class="serif">Trust must be earned</h4>
+        <p>Coordinators are experienced professionals. A system that hides its reasoning or overrides their judgment will be ignored within days.</p>
+        <div class="insight">"If I don't understand why it's suggesting that unit, I'll override it every time."</div>
+      </div>
+      <div class="it">
+        <div class="lab">Constraint 04</div>
+        <h4 class="serif">Hardware limitations</h4>
+        <p>The dispatch centre runs on aging monitors with low refresh rates. Animation-heavy UIs lag. The design had to work at 30fps on a 1080p screen.</p>
+        <div class="insight">"Our computers are slow. If it looks fancy it probably won't run."</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-section reveal">
+    <h2 class="serif">Design approach</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="n">01</div>
+        <div class="t serif">Incident triage view</div>
+        <div class="d">A single-screen command view showing all active incidents ranked by acuity. Colour, icon, and position encode severity — no reading required at a glance.</div>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <div class="t serif">Transparent recommendation engine</div>
+        <div class="d">System surfaces the top 3 available units for each incident with ETA, capacity, and proximity shown — reasoning visible, decision owned by coordinator.</div>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <div class="t serif">One-action dispatch</div>
+        <div class="d">Confirming a dispatch is a single tap with an undo window. Removed all confirmation dialogs from the critical path.</div>
+      </div>
+      <div class="step">
+        <div class="n">04</div>
+        <div class="t serif">Surge mode</div>
+        <div class="d">A one-click mode that simplifies the interface to essential controls only during mass casualty events — hiding non-critical information automatically.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-section reveal">
+    <h2 class="serif">Outcomes</h2>
+    <div class="stats">
+      <div class="stat"><div class="n serif"><span class="em">↓</span>68<span class="em">%</span></div><div class="l">Reduction in average dispatch decision time in usability testing</div></div>
+      <div class="stat"><div class="n serif">6<span class="em">wk</span></div><div class="l">Concept to production-ready prototype</div></div>
+      <div class="stat"><div class="n serif">100<span class="em">%</span></div><div class="l">Coordinator trust score in post-testing survey ("would use in a real shift")</div></div>
+      <div class="stat"><div class="n serif"><span class="em">↓</span>3×</div><div class="l">Fewer system switches per incident vs. legacy workflow</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="next-case wrap reveal">
+  <span class="eyebrow">Next case study</span>
+  <h3 class="serif"><a href="case-educaitors.html">AI-native Learning Platform <span class="em">→</span></a></h3>
+</div>
+
+<footer>
+  <div class="foot">
+    <div class="col">
+      <div class="name" style="margin-bottom:12px;"><img src="assets/logo.svg" alt="Mehak Garg" style="height:32px;width:auto;" /></div>
+      <p class="meta">Senior Product Designer<br/>Building enterprise software that ships.</p>
+    </div>
+    <div class="col">
+      <h5>Sitemap</h5>
+      <a href="index.html#work">Work</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+    </div>
+    <div class="col">
+      <h5>Elsewhere</h5>
+      <a href="#" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="#" target="_blank" rel="noopener">Behance ↗</a>
+    </div>
+    <div class="col">
+      <h5>Located</h5>
+      <p class="meta">Pune · India<br/>Working globally</p>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Mehak Garg</span>
+    <span>Mehak Garg · Senior Product Designer</span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
