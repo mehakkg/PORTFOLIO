@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About — Mehak Garg</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* ── About hero ── */
+  .about-hero {
+    padding-top: 180px;
+    padding-bottom: 80px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .about-hero h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(40px, 5.5vw, 84px);
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+  }
+  .about-hero h1 .em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .about-hero .photo {
+    aspect-ratio: 4/5;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+  .about-hero .photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    pointer-events: none;
+  }
+  @media (max-width: 800px) {
+    .about-hero { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ── Timeline ── */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--rule);
+    margin-top: 48px;
+  }
+  .tl-row {
+    display: grid;
+    grid-template-columns: 120px 200px 1fr 1fr;
+    gap: 32px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .tl-row .yr {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+  }
+  .tl-row .role {
+    font-family: var(--serif);
+    font-size: 18px;
+    letter-spacing: -0.005em;
+  }
+  .tl-row .where {
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .tl-row .what {
+    color: var(--ink-2);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  @media (max-width: 800px) {
+    .tl-row { grid-template-columns: 1fr; gap: 6px; }
+  }
+
+  /* ── Principles grid ── */
+  .principles-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .principle {
+    background: var(--paper);
+    padding: 36px;
+  }
+  .principle .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+  }
+  .principle h4 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    margin: 18px 0 10px;
+    line-height: 1.1;
+  }
+  .principle p {
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.55;
+  }
+  @media (max-width: 800px) {
+    .principles-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── Toolkit ── */
+  .toolkit {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .tool-col h5 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .tool-col ul {
+    list-style: none;
+  }
+  .tool-col li {
+    padding: 8px 0;
+    font-family: var(--serif);
+    font-size: 17px;
+    border-top: 1px solid var(--rule);
+  }
+  .tool-col li:first-child {
+    border-top: none;
+  }
+  @media (max-width: 800px) {
+    .toolkit { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ── Contact form ── */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .form-grid .full {
+    grid-column: 1 / -1;
+  }
+  .form-grid label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .form-grid input,
+  .form-grid textarea,
+  .form-grid select {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    font-family: var(--sans);
+    font-size: 16px;
+    color: var(--ink);
+    transition: border-color 0.2s, background 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .form-grid input:focus,
+  .form-grid textarea:focus,
+  .form-grid select:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: var(--paper);
+  }
+  .form-grid textarea {
+    min-height: 140px;
+    resize: vertical;
+    font-family: var(--serif);
+  }
+  .form-grid select {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b645a' stroke-width='2'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 40px;
+    cursor: pointer;
+  }
+  @media (max-width: 800px) {
+    .form-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="scroll-progress"></div>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo" data-cursor="hover">
+    <span class="dot"></span>
+    <img src="assets/logo.svg" alt="Mehak Garg" />
+  </a>
+  <div class="nav-links">
+    <a href="index.html#work" data-cursor="hover">Work</a>
+    <a href="about.html" class="active" data-cursor="hover">About</a>
+    <a href="#contact" class="cta" data-cursor="hover">Book a call →</a>
+  </div>
+</nav>
+
+<!-- 01 About hero -->
+<section data-screen-label="01 About hero">
+  <div class="wrap">
+    <div class="about-hero">
+      <div>
+        <span class="kicker reveal">About</span>
+        <h1 class="reveal" style="margin-top:18px;">
+          Senior Product Designer building <span class="em">enterprise software</span> that ships, scales, and earns trust.
+        </h1>
+        <p class="reveal" style="margin-top:36px;font-size:18px;color:var(--ink-2);max-width:54ch;line-height:1.6;">
+          I&rsquo;m Mehak — a senior product designer based in Pune, working with teams globally. Five years inside B2B and enterprise software has narrowed my focus to one question: <em>can the people who use this product actually use it?</em>
+        </p>
+        <p class="reveal" style="margin-top:18px;font-size:18px;color:var(--ink-2);max-width:54ch;line-height:1.6;">
+          My background is in engineering, design and psychology. Most of my work happens at the intersection of strategy, systems, and screens — where projects need more than pixels but less than a re-org.
+        </p>
+        <div class="reveal" style="margin-top:36px;display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="#contact" class="btn primary" data-cursor="hover">Book a call <span class="arrow">→</span></a>
+          <a href="assets/Mehak-Garg-Resume.pdf" download class="btn" data-cursor="hover">Download résumé <span class="arrow">↓</span></a>
+        </div>
+      </div>
+      <div class="photo reveal">
+        <img src="assets/portrait.jpg" alt="Mehak Garg" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 Timeline -->
+<section data-screen-label="02 Timeline">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="l reveal">
+        <span class="eyebrow">Career</span>
+        <h2 class="serif">Five years, four <span class="italic">categories.</span></h2>
+      </div>
+      <div class="r reveal">
+        <p>Mostly enterprise. Mostly the products people don&rsquo;t see — but their companies depend on. A short timeline.</p>
+      </div>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="tl-row">
+        <div class="yr">2023 — 2026</div>
+        <div class="role serif">Sr. Product Designer</div>
+        <div class="where">miniOrange · Privileged Access Management</div>
+        <div class="what">Strategy + IA + execution. PAM platform redesign. Onboarding overhaul. ↗</div>
+      </div>
+      <div class="tl-row">
+        <div class="yr">2025</div>
+        <div class="role serif">Lead Designer</div>
+        <div class="where">Merry Health · Healthcare ops</div>
+        <div class="what">Emergency ambulance dispatch decision-support system.</div>
+      </div>
+      <div class="tl-row">
+        <div class="yr">2023 — 2026</div>
+        <div class="role serif">Sr. Product Designer</div>
+        <div class="where">Identity &amp; Access Management</div>
+        <div class="what">B2B identity provider onboarding. Reduced setup time from 4 days to a few hours.</div>
+      </div>
+      <div class="tl-row">
+        <div class="yr">2024</div>
+        <div class="role serif">Solo designer</div>
+        <div class="where">SaltPeppr · Consumer food</div>
+        <div class="what">Web + iOS + Android + ops display. One system, three surfaces.</div>
+      </div>
+      <div class="tl-row">
+        <div class="yr">2025</div>
+        <div class="role serif">Lead Designer</div>
+        <div class="where">EducAItors · EdTech</div>
+        <div class="what">Designing an AI-native learning platform from 0 → 1.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 Principles -->
+<section data-screen-label="03 Principles">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="l reveal">
+        <span class="eyebrow">Principles</span>
+        <h2 class="serif">How I think about <span class="italic">the work.</span></h2>
+      </div>
+      <div class="r reveal">
+        <p>Six things I&rsquo;ll mostly defend, even when it&rsquo;s inconvenient.</p>
+      </div>
+    </div>
+
+    <div class="principles-grid reveal-stagger">
+      <div class="principle">
+        <div class="num">P · 01</div>
+        <h4 class="serif">Strategy first, screens last.</h4>
+        <p>By the time I open Figma, the architecture is decided. Pixels are downstream of decisions.</p>
+      </div>
+      <div class="principle">
+        <div class="num">P · 02</div>
+        <h4 class="serif">Audit before redesign.</h4>
+        <p>You can&rsquo;t fix what you haven&rsquo;t named. A scenario-driven audit beats a moodboard every time.</p>
+      </div>
+      <div class="principle">
+        <div class="num">P · 03</div>
+        <h4 class="serif">Defaults are decisions.</h4>
+        <p>The fastest path is the one you don&rsquo;t make users walk. Opinionated defaults are a craft, not laziness.</p>
+      </div>
+      <div class="principle">
+        <div class="num">P · 04</div>
+        <h4 class="serif">Compliance is a design surface.</h4>
+        <p>SOC 2, HIPAA, ISO — these aren&rsquo;t engineering checklists. They shape what users can do, when, and how.</p>
+      </div>
+      <div class="principle">
+        <div class="num">P · 05</div>
+        <h4 class="serif">Adoption &gt; aesthetic.</h4>
+        <p>A product no one opens is a portfolio piece, not a product. Solve adoption first, beauty second.</p>
+      </div>
+      <div class="principle">
+        <div class="num">P · 06</div>
+        <h4 class="serif">Leave teams better than I found them.</h4>
+        <p>I document, I systemize, I write down what worked. The next designer should ship faster because I was here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 Toolkit -->
+<section data-screen-label="04 Toolkit">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="l reveal">
+        <span class="eyebrow">Toolkit</span>
+        <h2 class="serif">What I reach for.</h2>
+      </div>
+      <div class="r reveal">
+        <p>Tools come and go. Frameworks last a little longer. Judgement, longest of all.</p>
+      </div>
+    </div>
+
+    <div class="toolkit reveal-stagger">
+      <div class="tool-col">
+        <h5>Design</h5>
+        <ul>
+          <li>Figma</li>
+          <li>Claude</li>
+          <li>Replit</li>
+          <li>Lovable</li>
+          <li>Framer</li>
+          <li>Adobe</li>
+        </ul>
+      </div>
+      <div class="tool-col">
+        <h5>Research</h5>
+        <ul>
+          <li>Heuristic audit</li>
+          <li>Scenario-driven UX</li>
+          <li>Jobs-to-be-Done</li>
+          <li>Service blueprints</li>
+          <li>Kano model</li>
+        </ul>
+      </div>
+      <div class="tool-col">
+        <h5>Strategy</h5>
+        <ul>
+          <li>Impact-vs-effort</li>
+          <li>Deal-breaker filter</li>
+          <li>Maturity mapping</li>
+          <li>OKRs that ship</li>
+          <li>Roadmap shaping</li>
+        </ul>
+      </div>
+      <div class="tool-col">
+        <h5>Working</h5>
+        <ul>
+          <li>Linear</li>
+          <li>Notion</li>
+          <li>Loom</li>
+          <li>Slack</li>
+          <li>FigJam</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 Contact form -->
+<section data-screen-label="05 Contact form" id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="l reveal">
+        <span class="eyebrow">Get in touch</span>
+        <h2 class="serif">Tell me what you&rsquo;re <span class="italic">stuck on.</span></h2>
+      </div>
+      <div class="r reveal">
+        <p>One paragraph is fine. I read everything within 48 hours and reply to anything that&rsquo;s a real fit.</p>
+      </div>
+    </div>
+
+    <form class="form-grid reveal" id="contact-form">
+      <div>
+        <label for="name">Your name</label>
+        <input id="name" type="text" placeholder="Your name" autocomplete="name" />
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="you@company.com" autocomplete="email" />
+      </div>
+      <div class="full">
+        <label for="company">Company &amp; role</label>
+        <input id="company" type="text" placeholder="VP Product, Acme" />
+      </div>
+      <div class="full">
+        <label for="help-type">What kind of help</label>
+        <select id="help-type">
+          <option>Embedded design slice</option>
+          <option>Enterprise UX Audit</option>
+          <option>Design Systems &amp; Scale</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="full">
+        <label for="message">Tell me what you&rsquo;re stuck on</label>
+        <textarea id="message" placeholder="A paragraph is fine. What&rsquo;s the product, who&rsquo;s using it, and where does it hurt?"></textarea>
+      </div>
+      <div class="full">
+        <button type="submit" class="btn primary" data-cursor="hover">Send <span class="arrow">→</span></button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="foot">
+    <div class="col">
+      <div class="name" style="margin-bottom:12px;">
+        <img src="assets/logo.svg" alt="Mehak Garg" style="height:32px;width:auto;" />
+      </div>
+      <p class="meta">Senior Product Designer<br/>Building enterprise software that ships.</p>
+    </div>
+    <div class="col">
+      <h5>Sitemap</h5>
+      <a href="index.html#work">Work</a>
+      <a href="about.html">About</a>
+      <a href="index.html#writing">Writing</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="col">
+      <h5>Elsewhere</h5>
+      <a href="#" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="#" target="_blank" rel="noopener">Behance ↗</a>
+      <a href="#" target="_blank" rel="noopener">Dribbble ↗</a>
+      <a href="#" target="_blank" rel="noopener">Medium ↗</a>
+    </div>
+    <div class="col">
+      <h5>Located</h5>
+      <p class="meta">Pune · India<br/>Working globally</p>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Mehak Garg</span>
+    <span>Mehak Garg · Senior Product Designer</span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+  // Contact form submit
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('button[type="submit"]');
+    btn.textContent = 'Sent ✓';
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+  });
+</script>
+</body>
+</html>
