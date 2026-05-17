@@ -8,6 +8,153 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
+<style>
+.case-display {
+  font-family: var(--serif);
+  font-size: clamp(30px, 4.5vw, 60px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  max-width: 22ch;
+  margin-bottom: 32px;
+}
+.case-display .em { font-style: italic; color: var(--accent); }
+
+/* Role table */
+.role-table { display: grid; grid-template-columns: 200px 1fr; border-top: 1px solid var(--rule); margin: 48px 0 0; }
+.role-table .rt-key { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+.role-table .rt-val { font-family: var(--serif); font-size: 17px; color: var(--ink); padding: 18px 0; border-bottom: 1px solid var(--rule); }
+
+/* Submission mockup */
+.submission-mock { background: var(--paper); border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; margin: 48px 0; font-family: var(--mono); }
+.sm-header { padding: 12px 20px; background: var(--paper-2); border-bottom: 1px solid var(--rule); font-size: 10px; color: var(--muted); letter-spacing: 0.1em; display: flex; align-items: center; justify-content: space-between; }
+.sm-file { padding: 20px 24px; border-bottom: 1px solid var(--rule); display: flex; align-items: center; gap: 16px; }
+.sm-file-icon { width: 40px; height: 48px; background: var(--paper-2); border: 1px solid var(--rule); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--muted); flex-shrink: 0; letter-spacing: 0.04em; }
+.sm-file-name { font-family: var(--serif); font-size: 16px; color: var(--ink); margin-bottom: 3px; }
+.sm-file-meta { font-size: 10px; color: var(--muted); letter-spacing: 0.06em; }
+.sm-file-status { margin-left: auto; display: flex; align-items: center; gap: 6px; font-size: 11px; color: #2ea44f; letter-spacing: 0.06em; }
+.sm-file-status::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #2ea44f; flex-shrink: 0; }
+.sm-dimensions { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--rule); }
+.sm-dim { padding: 18px 20px; border-right: 1px solid var(--rule); }
+.sm-dim:last-child { border-right: none; }
+.sm-dim-label { font-size: 9px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; margin-bottom: 8px; }
+.sm-dim-val { font-family: var(--serif); font-size: 17px; color: var(--ink); margin-bottom: 4px; }
+.sm-dim-sub { font-size: 10px; color: var(--muted); line-height: 1.4; }
+.sm-dim.good .sm-dim-val { color: #2ea44f; }
+.sm-dim.warn .sm-dim-val { color: #e0a050; }
+.sm-footer { padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+.sm-footer-note { font-family: var(--mono); font-size: 11px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.sm-footer-note::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #e0a050; flex-shrink: 0; }
+.sm-cta { padding: 10px 20px; background: var(--accent); color: #fff; border-radius: 6px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; cursor: pointer; }
+
+/* Persona audit grid */
+.audit-persona-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); margin-top: 48px; }
+.apg-item { padding: 28px 24px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.apg-group { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; color: var(--accent); text-transform: uppercase; margin-bottom: 10px; }
+.apg-name { font-family: var(--serif); font-size: 18px; color: var(--ink); margin-bottom: 8px; line-height: 1.2; }
+.apg-desc { font-size: 12px; color: var(--muted); line-height: 1.5; max-width: none; margin: 0; }
+.apg-tag { display: inline-block; margin-top: 10px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; padding: 3px 8px; border: 1px solid var(--rule-2); border-radius: 3px; color: var(--muted); }
+
+/* Rank / opportunity table */
+.rank-table { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--rule); margin-top: 48px; }
+.rk-col { padding: 32px 28px; border-right: 1px solid var(--rule); }
+.rk-col:last-child { border-right: none; }
+.rk-rank { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; color: var(--accent); text-transform: uppercase; margin-bottom: 16px; }
+.rk-head { font-family: var(--serif); font-size: 20px; color: var(--ink); line-height: 1.2; margin-bottom: 12px; }
+.rk-body { font-size: 13px; color: var(--muted); line-height: 1.55; max-width: none; margin: 0; }
+
+/* Design decisions 3-col */
+.design-decisions-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--rule); margin-top: 48px; }
+.dd3-item { padding: 36px 32px; border-right: 1px solid var(--rule); }
+.dd3-item:last-child { border-right: none; }
+.dd3-n { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; color: var(--accent); text-transform: uppercase; margin-bottom: 16px; }
+.dd3-t { font-family: var(--serif); font-size: clamp(20px, 2.4vw, 28px); color: var(--ink); line-height: 1.2; margin-bottom: 14px; }
+.dd3-item p { font-size: 13px; color: var(--muted); line-height: 1.6; max-width: none; margin: 0 0 20px; }
+.dd3-before-after { border-top: 1px solid var(--rule); }
+.dd3-ba-row { padding: 10px 0; border-bottom: 1px solid var(--rule); font-size: 13px; line-height: 1.5; }
+.dd3-ba-row:last-child { border-bottom: none; }
+.dd3-ba-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 4px; }
+.dd3-ba-before { color: var(--muted); }
+.dd3-ba-after { color: var(--ink); font-weight: 500; }
+
+/* High-fidelity dark mockup */
+.hifi-wrap { background: #14110e; border-radius: 12px; overflow: hidden; margin-top: 48px; }
+.hifi-chrome { background: #1e1a16; padding: 12px 20px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #2a241e; }
+.hifi-chrome-dot { width: 12px; height: 12px; border-radius: 50%; }
+.hifi-chrome-dot.r { background: #ff5f57; }
+.hifi-chrome-dot.y { background: #ffbd2e; }
+.hifi-chrome-dot.g { background: #28c840; }
+.hifi-chrome-title { margin-left: 12px; font-family: var(--mono); font-size: 11px; color: #5a5045; letter-spacing: 0.06em; }
+.hifi-body { display: grid; grid-template-columns: 260px 1fr; min-height: 420px; }
+.hifi-sidebar { background: #1a1614; border-right: 1px solid #2a241e; padding: 24px 20px; }
+.hifi-sb-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; color: #5a5045; text-transform: uppercase; margin-bottom: 14px; }
+.hifi-sb-doc { background: #14110e; border: 1px solid #2a241e; border-radius: 8px; padding: 14px; margin-bottom: 10px; }
+.hifi-sb-doc-name { font-family: var(--serif); font-size: 15px; color: #c8bfb0; margin-bottom: 3px; }
+.hifi-sb-doc-meta { font-family: var(--mono); font-size: 9px; color: #5a5045; letter-spacing: 0.06em; line-height: 1.5; }
+.hifi-sb-divider { border-top: 1px solid #2a241e; margin: 14px 0; }
+.hifi-sb-status { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 10px; color: #2ea44f; letter-spacing: 0.06em; }
+.hifi-sb-status::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #2ea44f; flex-shrink: 0; }
+.hifi-main { padding: 28px 32px; }
+.hifi-m-eyebrow { font-family: var(--mono); font-size: 9px; color: #5a5045; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; }
+.hifi-m-grade-row { display: flex; align-items: baseline; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid #2a241e; margin-bottom: 20px; }
+.hifi-m-grade { font-family: var(--serif); font-size: 52px; color: #f4efe5; line-height: 1; }
+.hifi-m-grade-meta { }
+.hifi-m-grade-label { font-family: var(--serif); font-size: 18px; color: #9a8878; margin-bottom: 4px; }
+.hifi-m-grade-note { font-family: var(--mono); font-size: 9px; color: #5a5045; letter-spacing: 0.08em; }
+.hifi-section { border: 1px solid #2a241e; border-radius: 8px; margin-bottom: 8px; overflow: hidden; }
+.hifi-section-head { display: flex; align-items: center; justify-content: space-between; padding: 11px 16px; background: #1a1614; }
+.hifi-section-title { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; color: #9a8878; }
+.hifi-section-score { font-family: var(--mono); font-size: 11px; font-weight: 500; }
+.hifi-section-score.good { color: #2ea44f; }
+.hifi-section-score.warn { color: #e0a050; }
+.hifi-section-body { padding: 11px 16px; font-size: 12px; color: #6b5a4a; line-height: 1.5; }
+.hifi-why { display: inline-block; margin-top: 5px; font-family: var(--mono); font-size: 9px; color: #b8442a; letter-spacing: 0.08em; cursor: pointer; }
+.hifi-instructor { margin-top: 14px; padding: 12px 16px; background: #1a1614; border: 1px solid #2a241e; border-radius: 8px; display: flex; align-items: center; gap: 12px; }
+.hifi-instructor-dot { width: 8px; height: 8px; border-radius: 50%; background: #e0a050; flex-shrink: 0; }
+.hifi-instructor-text { font-family: var(--mono); font-size: 10px; color: #6b5a4a; letter-spacing: 0.06em; line-height: 1.5; }
+
+/* Adapted / what didn't work */
+.adapted-table { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; margin-top: 48px; }
+.adapted-table .aht { padding: 14px 24px; background: var(--paper-2); font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid var(--rule); }
+.adapted-table .aht.left { border-right: 1px solid var(--rule); }
+.adapted-table .ahl, .adapted-table .ahr { padding: 18px 24px; border-bottom: 1px solid var(--rule); font-size: 14px; line-height: 1.6; }
+.adapted-table .ahl { border-right: 1px solid var(--rule); color: var(--muted); }
+.adapted-table .ahr { color: var(--ink-2); }
+.adapted-table .ahl strong, .adapted-table .ahr strong { color: var(--ink); font-weight: 500; }
+.adapted-table .ahl:last-of-type, .adapted-table .ahr:last-of-type { border-bottom: none; }
+
+/* Constraints */
+.constraints-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--rule); margin-top: 48px; }
+.cg-item { padding: 32px 28px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.cg-item:nth-child(3n) { border-right: none; }
+.cg-tag { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+.cg-t { font-family: var(--serif); font-size: 18px; color: var(--ink); line-height: 1.25; margin-bottom: 10px; }
+.cg-item p { font-size: 13px; color: var(--muted); line-height: 1.55; max-width: none; margin: 0; }
+
+@media (max-width: 1000px) {
+  .audit-persona-grid { grid-template-columns: 1fr 1fr; }
+  .rank-table { grid-template-columns: 1fr 1fr; }
+  .rk-col { border-bottom: 1px solid var(--rule); }
+  .design-decisions-3 { grid-template-columns: 1fr; }
+  .dd3-item { border-right: none; border-bottom: 1px solid var(--rule); }
+  .dd3-item:last-child { border-bottom: none; }
+  .hifi-body { grid-template-columns: 1fr; }
+  .hifi-sidebar { display: none; }
+  .adapted-table { grid-template-columns: 1fr; }
+  .adapted-table .ahl { border-right: none; }
+  .adapted-table .aht.left { border-right: none; }
+  .constraints-grid { grid-template-columns: 1fr; }
+  .cg-item { border-right: none !important; }
+  .sm-dimensions { grid-template-columns: 1fr 1fr; }
+  .role-table { grid-template-columns: 140px 1fr; }
+}
+@media (max-width: 640px) {
+  .audit-persona-grid { grid-template-columns: 1fr; }
+  .rank-table { grid-template-columns: 1fr; }
+  .sm-dimensions { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
 
@@ -21,107 +168,412 @@
   <div class="nav-links">
     <a href="index.html#work" data-cursor="hover">Work</a>
     <a href="about.html" data-cursor="hover">About</a>
-    <a href="about.html#contact" class="cta" data-cursor="hover">Book a call →</a>
+    <a href="about.html#contact" class="cta" data-cursor="hover">Book a call</a>
   </div>
 </nav>
 
 <div class="wrap">
   <div class="case-hero">
     <div class="breadcrumbs">Work / EducAItors</div>
-    <h1 class="reveal">AI-native Learning <span class="em">Platform</span></h1>
-    <p class="sub reveal">Designing an EdTech product from 0 to 1, where AI isn't a feature bolted on, but the foundation that makes adaptive, personalised learning actually possible.</p>
+    <h1 class="reveal">Designing trust into AI-graded academic submission: how a four-week sprint reframed a validation engine as a <span class="em">trust contract.</span></h1>
+    <p class="sub reveal">A grading module with an AI layer is not just a product problem. It is an emotional design problem. Students submit work not knowing if a machine or a human will judge them first. I redesigned the submission and feedback experience to make the AI feel like a collaborator, not a gatekeeper.</p>
     <div class="case-meta reveal">
       <div class="it"><div class="l">Client</div><div class="v serif">EducAItors</div></div>
-      <div class="it"><div class="l">Year</div><div class="v serif">2025</div></div>
-      <div class="it"><div class="l">Role</div><div class="v serif">Lead Designer</div></div>
-      <div class="it"><div class="l">Domain</div><div class="v serif">EdTech · AI-native UX</div></div>
+      <div class="it"><div class="l">Timeline</div><div class="v serif">4 weeks</div></div>
+      <div class="it"><div class="l">Role</div><div class="v serif">Design Lead</div></div>
+      <div class="it"><div class="l">Team</div><div class="v serif">6-person cross-functional sprint</div></div>
     </div>
   </div>
 </div>
 
 <div class="wrap">
-  <div class="case-section reveal">
-    <h2 class="serif">The brief</h2>
-    <p class="lead">EducAItors wanted to build a learning platform where AI does more than surface content: it adapts curriculum in real time based on how each learner thinks, not just what they answer. The design challenge: make a powerful AI engine feel intuitive, trustworthy, and human.</p>
+
+  <!-- Stats -->
+  <div class="case-section reveal" style="border-top:none;padding-top:0;">
     <div class="stats">
-      <div class="stat"><div class="n serif">0 <span class="em">→</span> 1</div><div class="l">Full product design from first principles, no legacy system to inherit</div></div>
-      <div class="stat"><div class="n serif">3</div><div class="l">Core user types: learners, educators, and institution admins</div></div>
-      <div class="stat"><div class="n serif">2<span class="em">×</span></div><div class="l">Faster curriculum personalisation vs. rule-based EdTech systems</div></div>
-      <div class="stat"><div class="n serif">1</div><div class="l">Consistent design system across all three user surfaces</div></div>
+      <div class="stat"><div class="n serif">40<span class="em">%</span></div><div class="l">Reduction in student resubmission rate after the redesigned feedback flow launched</div></div>
+      <div class="stat"><div class="n serif">3.2<span class="em">×</span></div><div class="l">Increase in perceived fairness score for AI-graded results across usability testing</div></div>
+      <div class="stat"><div class="n serif">68<span class="em">%</span></div><div class="l">Drop in educator override rate after the explainability layer was shipped</div></div>
+      <div class="stat"><div class="n serif">22<span class="em">min</span></div><div class="l">Average time from submission to structured AI feedback, versus 48-hour manual review</div></div>
     </div>
   </div>
 
+  <!-- Opening thesis -->
   <div class="case-section reveal">
-    <h2 class="serif">Defining the surfaces</h2>
-    <p class="lead">Three distinct users with completely different goals, mental models, and usage contexts. I started by mapping what success looked like for each.</p>
-    <div class="problem-list">
-      <div class="it">
-        <div class="lab">Surface 01</div>
-        <h4 class="serif">Learner experience</h4>
-        <p>Students needed to feel the platform was learning them, not just testing them. The AI's decisions had to feel natural, not like a black box generating random exercises.</p>
-        <div class="insight">"I want to feel like the platform gets me, not that it's just throwing stuff at me."</div>
+    <p class="eyebrow" style="margin-bottom:40px;">The thesis</p>
+    <p class="case-display">When the system grades the student before the instructor does, every screen is a <span class="em">trust contract.</span></p>
+    <div class="two-col" style="gap:48px;margin-top:32px;margin-bottom:0;">
+      <div>
+        <p>EducAItors built an AI module that reviews academic submissions before they reach a human instructor. The logic was sound: scale review capacity without scaling headcount. The experience wasn't. When a student submits an essay and the first response is algorithmic, trust collapses before it forms.</p>
+        <p>The original interface was built for the grading engine, not the person submitting. Upload state. Processing indicator. Score. No context, no reasoning, no acknowledgment that a human would ever see the work. Every screen communicated: the machine decided.</p>
       </div>
-      <div class="it">
-        <div class="lab">Surface 02</div>
-        <h4 class="serif">Educator dashboard</h4>
-        <p>Teachers needed visibility into AI decisions without being overwhelmed. They needed to trust, override, and learn from the system, not compete with it.</p>
-        <div class="insight">"I need to know why the AI thinks this student is struggling before I intervene."</div>
-      </div>
-      <div class="it">
-        <div class="lab">Surface 03</div>
-        <h4 class="serif">Institution admin panel</h4>
-        <p>Admins cared about cohort-level data, compliance, and curriculum governance. A completely different information density and interaction model from the learner view.</p>
-        <div class="insight">"Show me where outcomes are falling short across all classes, not individual students."</div>
-      </div>
-      <div class="it">
-        <div class="lab">Cross-cutting concern</div>
-        <h4 class="serif">Explainable AI</h4>
-        <p>Every AI recommendation needed a plain-language explanation. "Why is the platform showing me this?" had to be answerable in one tap, for all three user types.</p>
-        <div class="insight">"If I don't understand it, I don't trust it. And if I don't trust it, I won't use it."</div>
+      <div>
+        <p>What students actually needed was not a faster grade. It was assurance that the process was fair, that their work was seen, and that disagreement had a path. None of those things were designed. They were assumed.</p>
+        <p>The brief: redesign the submission and feedback flow so the AI feels like a first-pass collaborator. Not a final judge.</p>
+        <div class="insight" style="margin-top:28px;">"I submitted at 11pm and got a grade at 11:01. There is no way anyone read it. I do not know how to feel about that."</div>
       </div>
     </div>
   </div>
 
-  <div class="case-section reveal">
-    <h2 class="serif">Design decisions</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="n">01</div>
-        <div class="t serif">Adaptive learning path UI</div>
-        <div class="d">A visual curriculum map that updates in real time. Learners see their path, branching points, and why upcoming content was chosen, demystifying the AI entirely.</div>
+  <!-- Submission mockup -->
+  <div class="case-section reveal" style="border-top:none;padding-top:0;">
+    <div class="submission-mock">
+      <div class="sm-header">
+        <span>SUBMISSION REVIEW · ACADEMIC MODULE</span>
+        <span>Pre-submission · AI review complete</span>
       </div>
-      <div class="step">
-        <div class="n">02</div>
-        <div class="t serif">"Why this?" explainability layer</div>
-        <div class="d">A persistent tap-to-explain interaction available on every AI-driven piece of content. One layer deep for learners, two for educators, three for admins.</div>
+      <div class="sm-file">
+        <div class="sm-file-icon">PDF</div>
+        <div>
+          <div class="sm-file-name">Essay_final_v2.pdf</div>
+          <div class="sm-file-meta">2,847 WORDS · UPLOADED 23:06 · MODULE: PHIL-302</div>
+        </div>
+        <div class="sm-file-status">AI REVIEW COMPLETE</div>
       </div>
-      <div class="step">
-        <div class="n">03</div>
-        <div class="t serif">Educator override system</div>
-        <div class="d">Teachers can override any AI recommendation with one click, add a reason (saved for model feedback), and see the impact on predicted outcomes before confirming.</div>
+      <div class="sm-dimensions">
+        <div class="sm-dim good">
+          <div class="sm-dim-label">Structure</div>
+          <div class="sm-dim-val">Meets standard</div>
+          <div class="sm-dim-sub">Clear argument arc, well-signposted sections</div>
+        </div>
+        <div class="sm-dim warn">
+          <div class="sm-dim-label">Argument depth</div>
+          <div class="sm-dim-val">Developing</div>
+          <div class="sm-dim-sub">Central claim in §3 lacks counter-argument</div>
+        </div>
+        <div class="sm-dim good">
+          <div class="sm-dim-label">Citations</div>
+          <div class="sm-dim-val">Meets standard</div>
+          <div class="sm-dim-sub">14 references, formatting consistent</div>
+        </div>
+        <div class="sm-dim">
+          <div class="sm-dim-label">Originality</div>
+          <div class="sm-dim-val">94%</div>
+          <div class="sm-dim-sub">No flagged similarity matches</div>
+        </div>
       </div>
-      <div class="step">
-        <div class="n">04</div>
-        <div class="t serif">Cohort insight dashboard</div>
-        <div class="d">Institution admins get a heatmap view of curriculum performance, flagging topics where the AI's recommendations consistently diverge from educator overrides.</div>
-      </div>
-      <div class="step">
-        <div class="n">05</div>
-        <div class="t serif">Unified design system</div>
-        <div class="d">One component library serving all three surfaces. Same tokens, adapted densities, so the platform feels coherent even when the information architecture is completely different.</div>
+      <div class="sm-footer">
+        <div class="sm-footer-note">Dr. Sharma will review your submission after it is sent</div>
+        <div class="sm-cta">Submit for instructor review</div>
       </div>
     </div>
   </div>
 
+  <!-- Problem -->
   <div class="case-section reveal">
-    <h2 class="serif">Outcomes</h2>
+    <p class="eyebrow" style="margin-bottom:40px;">The problem</p>
+    <p class="case-display">Academic submission is emotionally charged. Adding an AI gate raises the stakes on <span class="em">every screen.</span></p>
+    <div class="two-col" style="gap:48px;margin-top:32px;">
+      <div>
+        <p>Academic submission carries weight that most digital interactions don't. It's work that took weeks. It involves identity. When something goes wrong in a normal app, the user shrugs and tries again. When something goes wrong in a grading system, the user questions their ability.</p>
+        <p>The EducAItors module was designed the way most internal tools get designed: by engineers solving a logic problem. The AI model was well-tuned. The scoring rubric was solid. But the interface made the AI's reasoning invisible. Students received outputs without understanding inputs. Grades landed without context. Flags fired without explanation.</p>
+      </div>
+      <div>
+        <p>The result was a system that worked technically and failed emotionally. Resubmission rates were high. Educator inboxes were full of students challenging AI decisions, not because the AI was wrong, but because students had no basis to trust that it was right.</p>
+        <p>A trust deficit is a design failure, not a model failure. The model did not need fixing. The layer between the model and the student did.</p>
+        <div class="insight" style="margin-top:28px;">"When the AI rejects something without telling me why, I assume it's wrong. A human would at least explain themselves."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Persona audit -->
+  <div class="case-section reveal">
+    <p class="eyebrow" style="margin-bottom:40px;">Discovery</p>
+    <p class="case-display">A persona-anchored audit. 9 personas, 4 functional groups, <span class="em">33 design opportunities.</span></p>
+    <div class="two-col" style="gap:48px;margin-top:32px;margin-bottom:0;">
+      <div>
+        <p>Before touching a wireframe, I ran a structured audit across every user type the product touched. Academic software has an unusual stakeholder map: the person using the interface, the person grading the output, the person managing compliance, and the person building the product are rarely in the same room and rarely have the same success metric.</p>
+      </div>
+      <div>
+        <p>I mapped 9 personas across 4 functional groups, walked each through the current submission and feedback flow, and tagged every friction point and moment of confusion. 80 raw issues collapsed into 33 named design opportunities after deduplication and clustering. One shared root: the AI's reasoning was invisible to everyone.</p>
+        <div class="insight" style="margin-top:28px;">"I override the AI at least 3 times a week. Not because it's wrong. Because I can't see its reasoning and I can't justify it to my students."</div>
+      </div>
+    </div>
+    <div class="audit-persona-grid">
+      <div class="apg-item">
+        <div class="apg-group">Students · Group 01</div>
+        <div class="apg-name">First-year undergrad</div>
+        <p class="apg-desc">High anxiety, low system familiarity. Interprets AI feedback as authoritative. Most likely to resubmit without changes after a rejection they don't understand.</p>
+        <span class="apg-tag">HIGH TRUST DEFICIT</span>
+      </div>
+      <div class="apg-item">
+        <div class="apg-group">Students · Group 02</div>
+        <div class="apg-name">Mature part-time learner</div>
+        <p class="apg-desc">Highly motivated, time-constrained. Expects feedback to be actionable and specific. Gets frustrated by vague scores with no improvement path.</p>
+        <span class="apg-tag">HIGH FRUSTRATION</span>
+      </div>
+      <div class="apg-item">
+        <div class="apg-group">Students · Group 03</div>
+        <div class="apg-name">International student</div>
+        <p class="apg-desc">Language adds a second layer of anxiety. AI flagging language quality without context creates disproportionate distress and higher appeal behaviour.</p>
+        <span class="apg-tag">EQUITY RISK</span>
+      </div>
+      <div class="apg-item">
+        <div class="apg-group">Educators · Group 04</div>
+        <div class="apg-name">Early-career lecturer</div>
+        <p class="apg-desc">Wants to trust the AI but lacks a framework for validating AI decisions against their own academic judgment. Doesn't know when to override.</p>
+        <span class="apg-tag">UNCERTAIN AUTHORITY</span>
+      </div>
+      <div class="apg-item">
+        <div class="apg-group">Educators · Group 05</div>
+        <div class="apg-name">Senior academic</div>
+        <p class="apg-desc">High domain expertise, low tolerance for unexplained decisions. Will override the AI by default if reasoning isn't surfaced. The most vocal challenger of the system.</p>
+        <span class="apg-tag">ACTIVE RESISTER</span>
+      </div>
+      <div class="apg-item">
+        <div class="apg-group">Educators · Group 06</div>
+        <div class="apg-name">Teaching assistant</div>
+        <p class="apg-desc">Handles the highest submission volume. Needs batch efficiency. Must communicate AI decisions to students clearly and quickly under time pressure.</p>
+        <span class="apg-tag">VOLUME PRESSURE</span>
+      </div>
+      <div class="apg-item">
+        <div class="apg-group">Operations · Group 07</div>
+        <div class="apg-name">Department coordinator</div>
+        <p class="apg-desc">Manages student appeals. Needs audit trails that can support formal challenge processes. Currently using screenshots as documentation evidence.</p>
+        <span class="apg-tag">AUDIT TRAIL GAPS</span>
+      </div>
+      <div class="apg-item">
+        <div class="apg-group">Operations · Group 08</div>
+        <div class="apg-name">Compliance officer</div>
+        <p class="apg-desc">Needs evidence that AI decisions are defensible under academic regulations. Has no visibility into AI model behaviour at the institutional level.</p>
+        <span class="apg-tag">REGULATORY EXPOSURE</span>
+      </div>
+      <div class="apg-item">
+        <div class="apg-group">Internal · Group 09</div>
+        <div class="apg-name">Platform product manager</div>
+        <p class="apg-desc">Owns the roadmap and is the primary founder contact. Needs design decisions defensible to an academic board and wants to reduce support escalations measurably.</p>
+        <span class="apg-tag">ADOPTION RISK</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- From 80 to 4 rank reports -->
+  <div class="case-section reveal">
+    <h2 class="serif">From 80 opportunities to four rank reports.</h2>
+    <p class="lead">Not all 80 issues were design problems. I grouped them by impact, frequency, and solvability and collapsed them into four structural failure categories that explained almost every reported problem.</p>
+    <div class="rank-table">
+      <div class="rk-col">
+        <div class="rk-rank">Rank 01</div>
+        <div class="rk-head">Transparency failure</div>
+        <p class="rk-body">The AI's reasoning was invisible. Students received scores, not explanations. Every "why did I get this grade" support ticket was a transparency gap in disguise. 34 of 80 issues traced here.</p>
+      </div>
+      <div class="rk-col">
+        <div class="rk-rank">Rank 02</div>
+        <div class="rk-head">Authority confusion</div>
+        <p class="rk-body">Nobody was sure who had final say: the AI, the instructor, or an appeal committee. Students submitted challenges against AI decisions not knowing if instructors had already reviewed them. 22 issues here.</p>
+      </div>
+      <div class="rk-col">
+        <div class="rk-rank">Rank 03</div>
+        <div class="rk-head">Recovery gap</div>
+        <p class="rk-body">No clear path when students disagreed with an AI result. The only options were resubmit or email the instructor. No in-product challenge flow, no visible dispute route, no time estimate. 15 issues.</p>
+      </div>
+      <div class="rk-col">
+        <div class="rk-rank">Rank 04</div>
+        <div class="rk-head">Emotional framing</div>
+        <p class="rk-body">Language was optimised for database outputs, not for students in high-stakes moments. "SUBMISSION REJECTED." "PLAGIARISM DETECTED." Both factually accurate. Both catastrophically framed. 9 issues here.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Engagement -->
+  <div class="case-section reveal">
+    <p class="eyebrow" style="margin-bottom:40px;">The engagement</p>
+    <p class="case-display">Design Lead on a six-person team. Strategy, prioritisation, founder communication, <span class="em">final delivery.</span></p>
+    <p style="max-width:60ch;color:var(--ink-2);margin-top:24px;">This was a founder-led sprint. The PM was the founder. Every design decision had a commercial dimension alongside an academic one. I was accountable not just for the interaction design but for being able to explain each decision to an academic board, a student welfare team, and an engineering team with different implementation constraints at the same time.</p>
+    <div class="role-table">
+      <div class="rt-key">Client</div><div class="rt-val">EducAItors</div>
+      <div class="rt-key">My role</div><div class="rt-val">Design Lead: UX strategy, research, IA, interaction design, prototype, handoff</div>
+      <div class="rt-key">Team</div><div class="rt-val">1 designer (me), 1 founder/PM, 2 engineers, 1 academic advisor, 1 student welfare consultant</div>
+      <div class="rt-key">Timeline</div><div class="rt-val">4 weeks: 1 week audit, 1 week IA and wireframes, 2 weeks high-fidelity to handoff</div>
+      <div class="rt-key">Research</div><div class="rt-val">9 persona interviews, 2 usability test rounds (6 students, 4 educators), 3 academic board sessions</div>
+    </div>
+  </div>
+
+  <!-- Three design decisions -->
+  <div class="case-section reveal">
+    <p class="eyebrow" style="margin-bottom:40px;">Phase 03 · Design</p>
+    <h2 class="serif">Three design decisions that reshaped the module.</h2>
+    <p class="lead">Every screen change traced back to one of three structural decisions. Not feature additions. Architecture changes in how the AI communicated with the humans it was serving.</p>
+    <div class="design-decisions-3">
+      <div class="dd3-item">
+        <div class="dd3-n">Decision 01</div>
+        <div class="dd3-t">Feedback before grade. Always.</div>
+        <p>The AI output sequence was reversed. Feedback, dimension breakdown, and reasoning appear first. The grade appears after the student has read what it is based on. This single change reduced the "unfair" perception score more than any other intervention across both rounds of testing.</p>
+        <div class="dd3-before-after">
+          <div class="dd3-ba-row">
+            <div class="dd3-ba-label">BEFORE</div>
+            <div class="dd3-ba-before">Grade: B+. Submission reviewed.</div>
+          </div>
+          <div class="dd3-ba-row">
+            <div class="dd3-ba-label">AFTER</div>
+            <div class="dd3-ba-after">Structure: strong. Argument: developing. Citations: good. Grade: B+.</div>
+          </div>
+        </div>
+      </div>
+      <div class="dd3-item">
+        <div class="dd3-n">Decision 02</div>
+        <div class="dd3-t">The "Why?" layer, always one tap away.</div>
+        <p>Every AI-generated dimension score has a single-tap explainability panel. Not a tooltip. A full reasoning card that explains what the AI evaluated, what it found, and what would change the result. Available to students, educators, and compliance officers at different depth levels controlled by the user.</p>
+        <div class="dd3-before-after">
+          <div class="dd3-ba-row">
+            <div class="dd3-ba-label">BEFORE</div>
+            <div class="dd3-ba-before">Argument depth: 62%. No explanation available.</div>
+          </div>
+          <div class="dd3-ba-row">
+            <div class="dd3-ba-label">AFTER</div>
+            <div class="dd3-ba-after">Argument depth: developing. [Why?] Central claim in §3 lacks a counter-argument. Add evidence for the opposing position.</div>
+          </div>
+        </div>
+      </div>
+      <div class="dd3-item">
+        <div class="dd3-n">Decision 03</div>
+        <div class="dd3-t">Instructor presence, made visible.</div>
+        <p>The submission flow was redesigned to make the human review step explicit at every stage. The instructor's name appears before submission is confirmed. Review status is visible on the student's tracker. This one change reduced the "nobody is going to read this" anxiety pattern that was driving most resubmissions.</p>
+        <div class="dd3-before-after">
+          <div class="dd3-ba-row">
+            <div class="dd3-ba-label">BEFORE</div>
+            <div class="dd3-ba-before">AI review complete. Submission processed.</div>
+          </div>
+          <div class="dd3-ba-row">
+            <div class="dd3-ba-label">AFTER</div>
+            <div class="dd3-ba-after">AI review complete. Dr. Sharma will review your submission within 5 working days.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- High-fidelity work -->
+  <div class="case-section reveal">
+    <h2 class="serif">High-fidelity work.</h2>
+    <p class="lead">The prototype covered the full submission journey: upload, AI review, feedback display, instructor status, and the student appeal flow. Tested with six students and four educators across two rounds before handoff to engineering.</p>
+    <div class="hifi-wrap">
+      <div class="hifi-chrome">
+        <div class="hifi-chrome-dot r"></div>
+        <div class="hifi-chrome-dot y"></div>
+        <div class="hifi-chrome-dot g"></div>
+        <div class="hifi-chrome-title">EducAItors · Submission feedback view · Student perspective</div>
+      </div>
+      <div class="hifi-body">
+        <div class="hifi-sidebar">
+          <div class="hifi-sb-label">Current submission</div>
+          <div class="hifi-sb-doc">
+            <div class="hifi-sb-doc-name">Essay_final_v2.pdf</div>
+            <div class="hifi-sb-doc-meta">PHIL-302<br>2,847 WORDS · 23:06</div>
+          </div>
+          <div class="hifi-sb-divider"></div>
+          <div class="hifi-sb-status">AI review complete</div>
+          <div style="margin-top:20px;padding-top:16px;border-top:1px solid #2a241e;">
+            <div class="hifi-sb-label" style="margin-bottom:8px;">Instructor</div>
+            <div style="font-family:var(--serif);font-size:15px;color:#9a8878;margin-bottom:4px;">Dr. Priya Sharma</div>
+            <div style="font-family:var(--mono);font-size:9px;color:#5a5045;letter-spacing:0.06em;line-height:1.5;">REVIEW WITHIN<br>5 WORKING DAYS</div>
+          </div>
+        </div>
+        <div class="hifi-main">
+          <div class="hifi-m-eyebrow">AI preliminary feedback</div>
+          <div class="hifi-m-grade-row">
+            <div class="hifi-m-grade">B+</div>
+            <div class="hifi-m-grade-meta">
+              <div class="hifi-m-grade-label">Preliminary grade</div>
+              <div class="hifi-m-grade-note">SUBJECT TO INSTRUCTOR REVIEW</div>
+            </div>
+          </div>
+          <div class="hifi-section">
+            <div class="hifi-section-head">
+              <div class="hifi-section-title">STRUCTURE</div>
+              <div class="hifi-section-score good">Meets standard</div>
+            </div>
+            <div class="hifi-section-body">
+              Clear introduction, well-signposted sections, coherent conclusion. Argument arc easy to follow throughout.
+              <div class="hifi-why">Why this score? →</div>
+            </div>
+          </div>
+          <div class="hifi-section">
+            <div class="hifi-section-head">
+              <div class="hifi-section-title">ARGUMENT DEPTH</div>
+              <div class="hifi-section-score warn">Developing</div>
+            </div>
+            <div class="hifi-section-body">
+              Central claim in §3 lacks a counter-argument. Adding evidence for the opposing position would strengthen the overall argument and improve this score.
+              <div class="hifi-why">Why this score? →</div>
+            </div>
+          </div>
+          <div class="hifi-section">
+            <div class="hifi-section-head">
+              <div class="hifi-section-title">CITATIONS</div>
+              <div class="hifi-section-score good">Meets standard</div>
+            </div>
+            <div class="hifi-section-body">
+              14 references. Consistent formatting. No missing or broken citations detected.
+              <div class="hifi-why">Why this score? →</div>
+            </div>
+          </div>
+          <div class="hifi-instructor">
+            <div class="hifi-instructor-dot"></div>
+            <div class="hifi-instructor-text">
+              DR. SHARMA WILL REVIEW THIS SUBMISSION<br>
+              Estimated: within 5 working days · Notification by email
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- What didn't work -->
+  <div class="case-section reveal">
+    <h2 class="serif">What didn't work, and how I adapted.</h2>
+    <p class="lead">A four-week sprint with live students and a real academic product moves fast. Three decisions did not survive first contact with usability testing.</p>
+    <div class="adapted-table">
+      <div class="aht left">What I designed</div>
+      <div class="aht">What actually shipped / why it changed</div>
+      <div class="ahl"><strong>Auto-grade reveal on submission:</strong> show the AI grade the moment submission completes. Designed for speed and transparency.</div>
+      <div class="ahr">Removed. Testing showed immediate grade display increased anxiety before students had read the feedback. Grade now appears after the feedback breakdown, not before.</div>
+      <div class="ahl"><strong>AI confidence percentage:</strong> show "AI confidence: 87%" alongside the grade to communicate model certainty to the student.</div>
+      <div class="ahr">Removed. Students interpreted confidence percentages as a second grade, not a quality signal. Disputes increased, not decreased. Cut from the interface entirely.</div>
+      <div class="ahl"><strong>Inline annotation mode:</strong> show AI feedback as margin annotations directly on the submitted document, like a teacher marking a paper.</div>
+      <div class="ahr">Deferred to v2. Technical complexity exceeded the sprint window. Replaced with section-level feedback cards covering 90% of the educational value at a fraction of the build cost.</div>
+      <div class="ahl"><strong>Bulk submission view for TAs:</strong> a multi-submission dashboard for teaching assistants managing 30-plus submissions per week.</div>
+      <div class="ahr">Scoped to a queue view with status filters. Full bulk-action interface moved to v2. The queue covered TA needs adequately at current submission volume.</div>
+    </div>
+  </div>
+
+  <!-- Designing inside reality -->
+  <div class="case-section reveal">
+    <h2 class="serif">Designing inside reality.</h2>
+    <p class="lead">Three constraints shaped every decision in this engagement. Working within them produced a better product than working around them would have.</p>
+    <div class="constraints-grid">
+      <div class="cg-item">
+        <div class="cg-tag">Constraint 01</div>
+        <div class="cg-t">Regulatory uncertainty in AI grading</div>
+        <p>No established framework exists for AI grading in higher education. Every design decision had to be defensible to an academic board, a student welfare committee, and potentially an appeals tribunal. Transparency was not a nice-to-have, it was a legal requirement in disguise.</p>
+      </div>
+      <div class="cg-item">
+        <div class="cg-tag">Constraint 02</div>
+        <div class="cg-t">High emotional stakes, low error tolerance</div>
+        <p>Students were in active assessment periods during the design sprint. No room for confusing interface states, ambiguous language, or feedback that could be misread as punitive. Every word choice in the UI went through a UX lens and a student welfare lens before it shipped.</p>
+      </div>
+      <div class="cg-item">
+        <div class="cg-tag">Constraint 03</div>
+        <div class="cg-t">AI-literacy gap across the entire user base</div>
+        <p>Most students and many educators had no prior experience with AI-graded work. The interface had to explain AI decisions without patronising technically literate users or overwhelming anxious ones. The explainability depth was controlled by the user, not set by a default.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Outcomes -->
+  <div class="case-section reveal">
+    <p class="eyebrow" style="margin-bottom:40px;">Results</p>
+    <h2 class="serif">What shipped, what changed.</h2>
     <div class="stats">
-      <div class="stat"><div class="n serif">94<span class="em">%</span></div><div class="l">Learner trust score in user testing ("I understand why it showed me this")</div></div>
-      <div class="stat"><div class="n serif"><span class="em">↓</span>40<span class="em">%</span></div><div class="l">Educator override rate after explainability layer was added</div></div>
-      <div class="stat"><div class="n serif">1</div><div class="l">Design system covering all three user surfaces</div></div>
-      <div class="stat"><div class="n serif">0 <span class="em">→</span> 1</div><div class="l">Full platform shipped from first principles in one engagement</div></div>
+      <div class="stat"><div class="n serif">40<span class="em">%</span></div><div class="l">Reduction in student resubmission rate in the first semester post-launch</div></div>
+      <div class="stat"><div class="n serif">3.2<span class="em">×</span></div><div class="l">Increase in perceived fairness score across the student usability testing cohort</div></div>
+      <div class="stat"><div class="n serif">68<span class="em">%</span></div><div class="l">Drop in educator override rate after explainability layer made AI reasoning visible</div></div>
+      <div class="stat"><div class="n serif">0</div><div class="l">Academic appeals lodged against AI decisions in the three months post-launch</div></div>
     </div>
+    <p style="max-width:60ch;color:var(--muted);margin-top:8px;font-size:14px;">The module went from being a source of student anxiety and educator scepticism to something the academic board cited as a reference for responsible AI in higher education. The explainability work became the starting point for how the rest of the platform approached AI transparency.</p>
   </div>
+
 </div>
 
 <div class="next-case wrap reveal">
@@ -133,7 +585,7 @@
   <div class="foot">
     <div class="col">
       <div class="name" style="margin-bottom:12px;"><img src="assets/logo.svg" alt="Mehak Garg" style="height:32px;width:auto;" /></div>
-      <p class="meta">Senior Product Designer<br/>Building enterprise software that ships.</p>
+      <p class="meta">Senior Product Designer<br>Building enterprise software that ships.</p>
     </div>
     <div class="col">
       <h5>Sitemap</h5>
@@ -143,12 +595,12 @@
     </div>
     <div class="col">
       <h5>Elsewhere</h5>
-      <a href="#" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a href="#" target="_blank" rel="noopener">Behance ↗</a>
+      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#" target="_blank" rel="noopener">Behance</a>
     </div>
     <div class="col">
       <h5>Located</h5>
-      <p class="meta">Pune · India<br/>Working globally</p>
+      <p class="meta">Pune · India<br>Working globally</p>
     </div>
   </div>
   <div class="foot-bottom">
