@@ -207,19 +207,48 @@
     margin-top: 48px;
   }
   .dd-thumb {
-    aspect-ratio: 1;
-    background: var(--paper-2);
-    border: 1px solid var(--rule);
+    aspect-ratio: 4/5;
     border-radius: 12px;
     overflow: hidden;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 0.1em;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    text-decoration: none;
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    position: relative;
   }
+  .dd-thumb:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,0.18); }
+  .dd-thumb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 55%);
+    pointer-events: none;
+  }
+  .dd-label {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1.3;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+  }
+  .dd-tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    margin-top: 5px;
+    position: relative;
+    z-index: 1;
+  }
+  .dd-p1 { background: linear-gradient(150deg, #0369a1 0%, #0891b2 45%, #22d3ee 100%); }
+  .dd-p2 { background: #080808; }
+  .dd-p3 { background: linear-gradient(150deg, #14532d 0%, #166534 55%, #4d7c0f 100%); }
+  .dd-p4 { background: linear-gradient(150deg, #78350f 0%, #b45309 55%, #d97706 100%); }
   @media (max-width: 700px) {
     .dd-grid { grid-template-columns: repeat(2, 1fr); }
   }
@@ -237,32 +266,32 @@
   }
   .beside-item {
     background: var(--paper);
-    padding: 28px 32px;
+    padding: 36px 32px;
     display: flex;
-    align-items: center;
-    gap: 16px;
+    flex-direction: column;
+    gap: 10px;
     transition: background 0.3s;
   }
   .beside-item:hover { background: var(--paper-2); }
-  .bi-dot {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: var(--accent-soft);
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--serif);
-    font-size: 13px;
+  .bi-n {
+    font-family: var(--mono);
+    font-size: 11px;
     color: var(--accent);
+    letter-spacing: 0.12em;
   }
   .beside-item h5 {
     font-family: var(--serif);
-    font-size: 16px;
+    font-size: 22px;
     font-weight: 400;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
     color: var(--ink);
+    line-height: 1.15;
+  }
+  .bi-sub {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.55;
+    max-width: 28ch;
   }
   @media (max-width: 800px) {
     .beside-grid { grid-template-columns: 1fr 1fr; }
@@ -377,38 +406,43 @@
     <div class="sec-head">
       <div class="l reveal">
         <span class="eyebrow">Beyond product design</span>
-        <h2 class="serif">Writing, brand, and <span class="italic">visual craft.</span></h2>
+        <h2 class="serif">Brand, web, and <span class="italic">creative work.</span></h2>
       </div>
       <div class="r reveal">
-        <p>Product design is the day job. Content writing, brand identity, graphic work, and websites built from scratch are everything else.</p>
+        <p>Product design is the day job. Brand identity, websites, graphic work, and content are everything else.</p>
       </div>
     </div>
 
     <div class="creative-grid reveal-stagger">
       <div class="creative-item">
         <div class="ci-num">01</div>
-        <h4 class="serif">Content writing</h4>
-        <p>Essays, case studies, and product writing. Long-form pieces on enterprise UX, systems thinking, and the craft of making complex software actually usable.</p>
-      </div>
-      <div class="creative-item">
-        <div class="ci-num">02</div>
-        <h4 class="serif">Content creation</h4>
-        <p>Design content for Instagram under @DesignDayyly. Carousels, reels, and visual explainers on design concepts, tools, and day-to-day process.</p>
-      </div>
-      <div class="creative-item">
-        <div class="ci-num">03</div>
         <h4 class="serif">Brand design</h4>
         <p>Identity systems, logomarks, and brand guidelines. Built from positioning and voice first, then into a visual language that holds together at scale.</p>
       </div>
       <div class="creative-item">
-        <div class="ci-num">04</div>
+        <div class="ci-num">02</div>
+        <h4 class="serif">Website design</h4>
+        <p>Landing pages and small-product sites, designed and deployed without a handoff. From Figma to browser, start to finish, in one engagement.</p>
+      </div>
+      <div class="creative-item">
+        <div class="ci-num">03</div>
         <h4 class="serif">Graphic design</h4>
         <p>Print and digital. Event collateral, marketing materials, social assets. Hands-on Adobe and Figma work, across formats and contexts.</p>
       </div>
       <div class="creative-item">
+        <div class="ci-num">04</div>
+        <h4 class="serif">Content writing</h4>
+        <p>Essays, case studies, and product writing. Long-form pieces on enterprise UX, systems thinking, and the craft of making complex software actually usable.</p>
+      </div>
+      <div class="creative-item">
         <div class="ci-num">05</div>
-        <h4 class="serif">Website design</h4>
-        <p>Landing pages and small-product sites, designed and deployed without a handoff. From Figma to browser, start to finish, in one engagement.</p>
+        <h4 class="serif">Content creation</h4>
+        <p>Design content for Instagram under @DesignDayyly. Carousels, reels, and visual explainers on design concepts, tools, and day-to-day process.</p>
+      </div>
+      <div class="creative-item">
+        <div class="ci-num">06</div>
+        <h4 class="serif">Sales design</h4>
+        <p>Pitch decks, one-pagers, and sales collateral. Designed to work in a room, not just on screen. Material that moves deals forward.</p>
       </div>
     </div>
   </div>
@@ -427,10 +461,22 @@
       </div>
     </div>
     <div class="dd-grid reveal">
-      <div class="dd-thumb">POST 01</div>
-      <div class="dd-thumb">POST 02</div>
-      <div class="dd-thumb">POST 03</div>
-      <div class="dd-thumb">POST 04</div>
+      <a href="https://www.instagram.com/p/C2WR-f1oNaQ/" target="_blank" rel="noopener" class="dd-thumb dd-p1">
+        <div class="dd-label">How I deal with Creative Blocks</div>
+        <div class="dd-tag">@designdayyly</div>
+      </a>
+      <a href="https://www.instagram.com/p/C2KuqtOo2Ga/" target="_blank" rel="noopener" class="dd-thumb dd-p2">
+        <div class="dd-label">My Design Journey</div>
+        <div class="dd-tag">@designdayyly</div>
+      </a>
+      <a href="https://www.instagram.com/p/C2eNTQOI8c-/" target="_blank" rel="noopener" class="dd-thumb dd-p3">
+        <div class="dd-label">My Design Toolkit</div>
+        <div class="dd-tag">@designdayyly</div>
+      </a>
+      <a href="https://www.instagram.com/designdayyly" target="_blank" rel="noopener" class="dd-thumb dd-p4">
+        <div class="dd-label">Unveiling My Skillset</div>
+        <div class="dd-tag">@designdayyly</div>
+      </a>
     </div>
   </div>
 </section>
@@ -446,28 +492,34 @@
     </div>
     <div class="beside-grid reveal-stagger">
       <div class="beside-item">
-        <div class="bi-dot">P</div>
+        <div class="bi-n">01</div>
         <h5>Plan events</h5>
+        <p class="bi-sub">Themed gatherings, hospitality from scratch. I do all the logistics nobody else wants to touch.</p>
       </div>
       <div class="beside-item">
-        <div class="bi-dot">R</div>
+        <div class="bi-n">02</div>
         <h5>Read books</h5>
+        <p class="bi-sub">Mostly non-fiction: psychology, design history, business strategy. Fiction when I need to fully switch off.</p>
       </div>
       <div class="beside-item">
-        <div class="bi-dot">C</div>
+        <div class="bi-n">03</div>
         <h5>Create design content</h5>
+        <p class="bi-sub">@DesignDayyly. Making complex design concepts feel like something anyone can actually hold.</p>
       </div>
       <div class="beside-item">
-        <div class="bi-dot">D</div>
+        <div class="bi-n">04</div>
         <h5>Doodle and paint</h5>
+        <p class="bi-sub">Pencil sketches, occasional gouache. Mostly faces and plants. A different kind of visual thinking.</p>
       </div>
       <div class="beside-item">
-        <div class="bi-dot">A</div>
-        <h5>Attend concerts and art galleries</h5>
+        <div class="bi-n">05</div>
+        <h5>Concerts and art galleries</h5>
+        <p class="bi-sub">Live music and visual art in the same week is the reset. Especially anything experimental or unexpected.</p>
       </div>
       <div class="beside-item">
-        <div class="bi-dot">F</div>
+        <div class="bi-n">06</div>
         <h5>Talk about fashion</h5>
+        <p class="bi-sub">Clothes as communication. Sustainability, silhouette, semiotics. Very happy to talk about this for too long.</p>
       </div>
     </div>
   </div>
@@ -675,7 +727,10 @@
       'Company: ' + company + '\n\n' +
       message
     );
-    window.location.href = 'mailto:mehakrgarg@gmail.com?subject=' + subject + '&body=' + body;
+    window.open(
+      'https://mail.google.com/mail/?view=cm&to=mehakrgarg%40gmail.com&su=' + subject + '&body=' + body,
+      '_blank'
+    );
   });
 </script>
 </body>
